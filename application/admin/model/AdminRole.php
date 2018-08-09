@@ -9,7 +9,9 @@
 namespace app\admin\model;
 
 
-class AdminRole
-{
+use think\Model;
 
+class AdminRole extends Model
+{
+    protected $hidden = ['delete_time','update_time','create_time'];
 }

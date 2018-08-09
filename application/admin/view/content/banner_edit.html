@@ -1,10 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>后台管理主页</title>
+    <meta name="description" content="后台管理主页">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="icon" type="image/png" href="__PUBLIC__/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="__PUBLIC__/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <script src="http://cdn.bootcss.com/echarts/3.3.2/echarts.min.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/css/amazeui.datatables.min.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/css/app.css">
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="__PUBLIC__/jss/dialog/layer.js"></script>
+    <script src="__PUBLIC__/jss/dialog.js"></script>
+    <script src="__PUBLIC__/js/jquery.form.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+    <style media="screen">
+        .zi {
+            font-size: 13px;
+        }
+    </style>
 </head>
-<body>
-$END$
+
+<body data-type="widgets">
+<script src="__PUBLIC__/js/theme.js"></script>
+<div class="am-g tpl-g">
+    {include file="Index/header" /}
+
+    <!-- 内容区域 -->
+    <div class="tpl-content-wrapper">
+
+        <div class="row-content am-cf">
+
+            <div class="row">
+
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                    <div class="widget am-cf">
+                        <div class="widget-head am-cf">
+                            <div class="widget-title am-fl">Banner修改</div>
+                            <div class="widget-function am-fr">
+                                <a href="javascript:;" class="am-icon-cog"></a>
+                            </div>
+                        </div>
+                        <div class="widget-body am-fr">
+
+                            <form class="am-form tpl-form-border-form tpl-form-border-br" id="search_form">
+
+                                <div class="am-form-group">
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">名字 </label>
+                                    <div class="am-u-sm-9">
+                                        <input type="hidden" name="id" value="{$result.id}">
+                                        <input type="text" class="tpl-form-input" name="name"
+                                               value="{$result.name}" id="user-name" placeholder="请输入名字">
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label for="user-desc" class="am-u-sm-3 am-form-label">描述 </label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" name="description"
+                                               value="{$result.description}" id="user-desc" placeholder="请输入描述">
+                                    </div>
+                                </div>
+
+                                <div class="am-u-sm-12">
+                                    <br/>
+                                </div>
+
+                                <div class="am-u-sm-12 am-form-group">
+                                    <a href="{:url('content/banner_item_add')}?id={$result.id}">
+                                        <button type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success"  >新增banner</button>
+                                    </a>
+                                </div>
+
+                                <div class="am-u-sm-12">
+                                    <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " id="example-r">
+                                        <thead id="taitou">
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>图片</th>
+                                                <th>关键字</th>
+                                                <th>跳转链接</th>
+                                                <th>排序</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {volist name="result.items" id="vo"}
+                                                <tr class="gradeX">
+                                                    <td>{$vo.id}</td>
+                                                    <td>
+                                                        <img src="__UPLOADS__/{$vo.img_url}" width="100px" alt="">
+                                                    </td>
+                                                    <td>{$vo.key_word}</td>
+                                                    <td>{$vo.link}</td>
+                                                    <td>{$vo.sort}</td>
+                                                    <td>
+                                                        <div class="tpl-table-black-operation">
+                                                            <a href="{:url('content/banner_item_edit')}?id={$vo.id}">
+                                                                <i class="am-icon-pencil"></i> 编辑
+                                                            </a>
+                                                            <a href="javascript:;" onclick="return dialog.confirm('您确定要删除吗？','{:url('content/banner_item_del')}?id={$vo.id}',7);" class="tpl-table-black-operation-del">
+                                                                <i class="am-icon-trash"></i> 删除
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            {/volist}
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                                <div class="am-form-group">
+                                    <div class="am-u-sm-9 am-u-sm-push-3">
+                                        <button type="button"
+                                                onclick="option(this,'{:url('content/banner_edit_ajax')}')"
+                                                class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+</div>
+<script src="http://cdn.bootcss.com/amazeui/2.7.2/js/amazeui.min.js"></script>
+<script src="__PUBLIC__/js/amazeui.datatables.min.js"></script>
+<script src="__PUBLIC__/js/dataTables.responsive.min.js"></script>
+<script src="__PUBLIC__/js/app.js"></script>
+<script type="text/javascript">
+
+
+</script>
 </body>
+
 </html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>后台管理</title>
+    <meta name="description" content="后台管理">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="__PUBLIC__/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="__PUBLIC__/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <script src="http://cdn.bootcss.com/echarts/3.3.2/echarts.min.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css" />
+    <link rel="stylesheet" href="__PUBLIC__/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="__PUBLIC__/css/app.css">
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="__PUBLIC__/jss/dialog/layer.js"></script>
+    <script src="__PUBLIC__/jss/dialog.js"></script>
+    <style media="screen">
+    .fixed{position: fixed;background: #fff;z-index: 200;display: inherit;width: 91.3%;top: 0px;}
+    /*.fixed th:nth-child(1){ width: 1%;}
+    .fixed th:nth-child(2){ width: 2.7%;}
+    .fixed th:nth-child(3){ width: 60px;}
+    .fixed th:nth-child(4){ width: 6.6%;}
+    .fixed th:nth-child(5){ width: 33.8%;}
+    .fixed th:nth-child(6){ width: 9.8%;}
+    .fixed th:nth-child(7){ width: 5.3%;}
+    .fixed th:nth-child(8){ width: 7%;}
+    .fixed th:nth-child(9){ width: 17%;}*/
+    </style>
+</head>
+
+<body data-type="widgets">
+    <script src="__PUBLIC__/js/theme.js"></script>
+    <div class="am-g tpl-g">
+      {include file="Index/header" /}
+
+        <!-- 内容区域 -->
+        <div class="tpl-content-wrapper">
+            <div class="row-content am-cf">
+                <div class="row">
+                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                        <div class="widget am-cf">
+                            <div class="widget-head am-cf">
+                                <div class="widget-title  am-cf">限权列表</div>
+
+
+                            </div>
+                            <div class="widget-body  am-fr">
+
+                                <div class="am-u-sm-12 am-u-md-6 am-u-lg-6">
+                                    <div class="am-form-group">
+                                        <div class="am-btn-toolbar">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                                <button type="button" onclick="javascript:window.location.href='{:url('aut/catalog_add')}'" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div class="am-u-sm-12 am-u-md-6 am-u-lg-6">-->
+                                    <!--<div class="am-form-group tpl-table-list-select">-->
+                                        <!--<select data-am-selected="{btnSize: 'sm'}">-->
+                                          <!--<option value="none">所有类别</option>-->
+                                          <!--{volist name="result" id="vo"}-->
+                                            <!--<option value="{$vo.permission_id}">{$vo.permission_name}</option>-->
+                                          <!--{/volist}-->
+                                        <!--</select>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+
+                                <div class="am-u-sm-12">
+                                    <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " id="example-r">
+                                        <thead id="taitou">
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>名称</th>
+                                                <th>地址</th>
+                                                <th>上级ID</th>
+                                                <th>图标代码</th>
+                                                <th>级别</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                          {volist name="result" id="vo"}
+                                            <tr class="gradeX">
+                                                <td>{$vo.permission_id}</td>
+                                                <td>{$vo.permission_name}</td>
+                                                <td>{$vo.menu_url}</td>
+                                                <td>{$vo.module_id}</td>
+                                                <td>{$vo.permission_ico}</td>
+                                                <td>{$vo.grade}</td>
+                                                <td>
+                                                    <div class="tpl-table-black-operation">
+                                                        <a href="{:url('Aut/catalog_edit')}?permission_id={$vo.permission_id}">
+                                                            <i class="am-icon-pencil"></i> 编辑
+                                                        </a>
+                                                        <a href="javascript:;" onclick="return dialog.confirm('您确定要删除吗？','{:url('Aut/catalog_del')}?permission_id={$vo.permission_id}',7);" class="tpl-table-black-operation-del">
+                                                            <i class="am-icon-trash"></i> 删除
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            {volist name="resulttow" id="pi"}
+                                              {if condition="$pi['module_id'] eq $vo['permission_id']"}
+                                                <tr class="gradeX">
+                                                    <td>{$pi.permission_id}</td>
+                                                    <td><i style="margin-left: 0px;">├─  </i>{$pi.permission_name}</td>
+                                                    <td>{$pi.menu_url}</td>
+                                                    <td>{$pi.module_id}</td>
+                                                    <td>{$pi.permission_ico}</td>
+                                                    <td>{$pi.grade}</td>
+                                                    <td>
+                                                        <div class="tpl-table-black-operation">
+                                                            <a href="{:url('Aut/catalog_edit')}?permission_id={$pi.permission_id}">
+                                                                <i class="am-icon-pencil"></i> 编辑
+                                                            </a>
+                                                            <a href="javascript:;" onclick="return dialog.confirm('您确定要删除吗？','{:url('Aut/catalog_del')}?permission_id={$pi.permission_id}',7);" class="tpl-table-black-operation-del">
+                                                                <i class="am-icon-trash"></i> 删除
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                              {/if}
+                                            {/volist}
+                                          {/volist}
+
+                                            <!-- more data -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- <div class="am-u-lg-12 am-cf">
+
+                                    <div class="am-fr">
+                                        <ul class="am-pagination tpl-pagination">
+                                            <li class="am-disabled"><a href="#">«</a></li>
+                                            <li class="am-active"><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li><a href="#">»</a></li>
+                                        </ul>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="http://cdn.bootcss.com/amazeui/2.7.2/js/amazeui.min.js"></script>
+    <script src="__PUBLIC__/js/amazeui.datatables.min.js"></script>
+    <script src="__PUBLIC__/js/dataTables.responsive.min.js"></script>
+    <script src="__PUBLIC__/js/app.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $(window).scroll(function(){
+            if($(document).scrollTop()>150){
+               //alert('12');
+               $('#taitou').attr('class','fixed');
+              }
+            if($(document).scrollTop()<150){
+               //alert('12');
+               $('#taitou').removeAttr('class','fixed');
+              }
+            //alert($(document).scrollTop());
+           });
+        });
+    </script>
+</body>
+
+</html>

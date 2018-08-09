@@ -1,0 +1,93 @@
+<!-- 头部 -->
+<header>
+    <!-- logo -->
+    <div class="am-fl tpl-header-logo">
+        <a href="javascript:;"><img src="__PUBLIC__/img/logo.png" alt=""></a>
+    </div>
+    <!-- 右侧内容 -->
+    <div class="tpl-header-fluid">
+        <!-- 侧边切换 -->
+        <div class="am-fl tpl-header-switch-button am-icon-list">
+            <span>
+
+        </span>
+        </div>
+
+        <!-- 其它功能-->
+        <div class="am-fr tpl-header-navbar">
+            <ul>
+                <!-- 欢迎语 -->
+                <li class="am-text-sm tpl-header-navbar-welcome">
+                    <a href="javascript:;">欢迎你, <span>{$_SESSION['think']['adminUser']['user_name']}</span> </a>
+                </li>
+
+
+                <!-- 退出 -->
+                <li class="am-text-sm">
+                    <a href="{:url('Login/loginout')}" >
+                        <span class="am-icon-sign-out"></span> 退出
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</header>
+<!-- 风格切换 -->
+<div class="tpl-skiner">
+    <div class="tpl-skiner-toggle am-icon-cog">
+    </div>
+    <div class="tpl-skiner-content">
+        <div class="tpl-skiner-content-title">
+            选择主题
+        </div>
+        <div class="tpl-skiner-content-bar">
+            <span class="skiner-color skiner-white" data-color="theme-white"></span>
+            <span class="skiner-color skiner-black" data-color="theme-black"></span>
+        </div>
+    </div>
+</div>
+<!-- 侧边导航栏 -->
+<div class="left-sidebar">
+    <!-- 用户信息 -->
+    <div class="tpl-sidebar-user-panel">
+        <div class="tpl-user-panel-slide-toggleable">
+            <div class="tpl-user-panel-profile-picture">
+                <img src="__UPLOADS__/{$_SESSION['think']['adminUser']['img']}" alt="">
+            </div>
+            <span class="user-panel-logged-in-text">
+      <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
+      {$_SESSION['think']['adminUser']['user_name']}
+  </span>
+            <a href="{:url('aut/admin_edit','admin_id='.$_SESSION.think.adminUser.admin_id)}" class="tpl-user-panel-action-link"> <span class="am-icon-pencil"></span> 账号设置</a>
+        </div>
+    </div>
+
+    <!-- 菜单 -->
+    <ul class="sidebar-nav">
+        <li class="sidebar-nav-link">
+            <a href="{:url('Index/index')}">
+                <i class="am-icon-home sidebar-nav-link-logo"></i> 首页
+            </a>
+        </li>
+        {volist name='admin_url_list_1' id="vo"}
+            <li class="sidebar-nav-link">
+                <a href="javascript:;" class="sidebar-nav-sub-title">
+                    <i class="am-icon-{$vo.permission_ico} sidebar-nav-link-logo"></i> {$vo.permission_name}
+                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico {if condition='$admin_url eq $vo.menu_url'} {else/} sidebar-nav-sub-ico-rotate {/if} "></span>
+                </a>
+                <ul class="sidebar-nav sidebar-nav-sub" {if condition="$admin_url eq $vo.menu_url"} style="display: block;"{/if} >
+                    {volist name='admin_url_list_2' id="pi"}
+                        {if condition="$vo['permission_id'] eq $pi['module_id']"}
+                            <li class="sidebar-nav-link">
+                                <a href="{:url($pi.menu_url)}" s="{$_SERVER.QUERY_STRING}  {$pi.menu_url}" {if condition='strpos($_SERVER.QUERY_STRING, $pi.menu_url)'}  class="active" {else/} {/if} >
+                                    <span class="am-icon-angle-right sidebar-nav-link-logo"></span> {$pi['permission_name']}
+                                </a>
+                            </li>
+                        {/if}
+                    {/volist}
+                </ul>
+            </li>
+        {/volist}
+    </ul>
+</div>

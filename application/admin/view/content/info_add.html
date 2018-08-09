@@ -1,10 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>后台管理主页</title>
+    <meta name="description" content="后台管理主页">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="__PUBLIC__/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="__PUBLIC__/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <script src="http://cdn.bootcss.com/echarts/3.3.2/echarts.min.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css?v=01" />
+    <link rel="stylesheet" href="__PUBLIC__/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="__PUBLIC__/css/app.css">
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="__PUBLIC__/jss/dialog/layer.js"></script>
+    <script src="__PUBLIC__/jss/dialog.js"></script>
+    <script src="__PUBLIC__/js/jquery.form.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+    <style>
+        a:hover, a:focus {text-decoration: inherit;}
+    </style>
 </head>
-<body>
-$END$
+
+<body data-type="widgets">
+<script src="__PUBLIC__/js/theme.js"></script>
+<div class="am-g tpl-g">
+    {include file="Index/header" /}
+
+    <!-- 内容区域 -->
+    <div class="tpl-content-wrapper">
+
+        <div class="row-content am-cf">
+
+            <div class="row">
+
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                    <div class="widget am-cf">
+                        <div class="widget-head am-cf">
+                            <div class="widget-title am-fl">文章添加</div>
+                            <div class="widget-function am-fr">
+                                <a href="javascript:;" class="am-icon-cog"></a>
+                            </div>
+                        </div>
+                        <div class="widget-body am-fr">
+
+                            <form class="am-form tpl-form-border-form tpl-form-border-br" id="search_form">
+
+                                <div class="am-form-group" style="display: none;">
+                                    <label class="am-u-sm-3 am-form-label">文章类型 </label>
+                                    <div class="am-u-sm-9">
+                                        <select data-am-selected="{searchBox: 1}" name="cat_id" id="selects" style="display: none;">
+                                            <option value="1" >资讯</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">文章标题 </label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" name="title" placeholder="输入文章标题">
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">文章封面 </label>
+                                    <div class="am-u-sm-9">
+                                        <div class="am-form-group am-form-file">
+                                            <div class="tpl-form-file-img">
+                                                <img src="" alt="" id="img1">
+                                            </div>
+                                            <button type="button" class="am-btn am-btn-danger am-btn-sm">
+                                                <i class="am-icon-cloud-upload"></i> 添加文章封面</button>
+                                            <input id="uploadfile1" type="file" name="thumb" onchange="preview(1)" multiple>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">作者 </label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" name="author" placeholder="输入作者">
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">关键字 </label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" name="keywords" placeholder="输入关键字">
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">链接地址 </label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" name="link" placeholder="输入原文链接">
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">文章内容 </label>
+                                    <div class="am-u-sm-9">
+                                        <textarea name="content" id="summernote" style="display:none;"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">原文链接 </label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" name="source_url" placeholder="输入原文链接">
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">浏览量 </label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" name="click" placeholder="输入浏览量">
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">赞数量 </label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" name="like" placeholder="输入赞数量">
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label for="user-sort" class="am-u-sm-3 am-form-label">序号 </label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" id="user-sort" name="sort" value="100" placeholder="请输入序号">
+                                        <small>序号越大 排名越靠前 默认100</small>
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label for="user-intro" class="am-u-sm-3 am-form-label">启用文章</label>
+                                    <div class="am-u-sm-9">
+                                        <div class="tpl-switch">
+                                            <input type="checkbox" name="is_open" value="1" class="ios-switch bigswitch tpl-switch-btn" checked="">
+                                            <div class="tpl-switch-btn-view">
+                                                <div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="am-form-group">
+                                    <div class="am-u-sm-9 am-u-sm-push-3">
+                                        <button type="button" onclick="option(this,'{:url('content/info_add_ajax')}')" class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+</div>
+<script src="http://cdn.bootcss.com/amazeui/2.7.2/js/amazeui.min.js"></script>
+<script src="__PUBLIC__/js/amazeui.datatables.min.js"></script>
+<script src="__PUBLIC__/js/dataTables.responsive.min.js"></script>
+<script src="__PUBLIC__/js/app.js"></script>
+
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/summernote-zh-CN.js"></script>
+<script>
+
+    $(document).ready(function() {
+
+        $('#summernote').summernote({
+            lang: 'zh-CN',
+            height: 300,
+            focus: true,
+            callbacks: {
+                onImageUpload: function(file) {  //图片默认以二进制的形式存储到数据库，调用此方法将请求后台将图片存储到服务器，返回图片请求地址到前端
+
+                    //将图片放入Formdate对象中
+                    var formData = new FormData();
+                    //‘picture’为后台获取的文件名，file[0]是要上传的文件
+                    formData.append("picture", file[0]);
+                    $.ajax({
+                        type:'post',
+                        url:'{:url(\'index/img_ajax\')}',
+                        cache: false,
+                        data:formData,
+                        processData: false,
+                        contentType: false,
+                        dataType:'json', //请求成功后，后台返回图片访问地址字符串，故此以text格式获取，而不是json格式
+                        success: function(result) {
+                            if (result.status == '0') {
+                                return dialog.error(result.message);
+                            }
+                            if (result.status == '1') {
+                                $('#summernote').summernote('insertImage',result.data);
+                            }
+                        },
+                        error:function(){
+                            return dialog.error('图片大小超过1MB,上传失败');
+                        }
+                    });
+                }
+            }
+
+        });
+
+    });
+
+</script>
 </body>
+
 </html>

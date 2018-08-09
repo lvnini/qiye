@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>后台管理主页</title>
+    <meta name="description" content="后台管理主页">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="icon" type="image/png" href="__PUBLIC__/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="__PUBLIC__/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <script src="http://cdn.bootcss.com/echarts/3.3.2/echarts.min.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/css/amazeui.datatables.min.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/css/app.css">
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="__PUBLIC__/jss/dialog/layer.js"></script>
+    <script src="__PUBLIC__/jss/dialog.js"></script>
+    <script src="__PUBLIC__/js/jquery.form.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+    <style media="screen">
+        .zi {
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body data-type="widgets">
+<script src="__PUBLIC__/js/theme.js"></script>
+<div class="am-g tpl-g">
+    {include file="Index/header" /}
+
+    <!-- 内容区域 -->
+    <div class="tpl-content-wrapper">
+
+        <div class="row-content am-cf">
+
+            <div class="row">
+
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                    <div class="widget am-cf">
+                        <div class="widget-head am-cf">
+                            <div class="widget-title am-fl">角色添加</div>
+                            <div class="widget-function am-fr">
+                                <a href="javascript:;" class="am-icon-cog"></a>
+                            </div>
+                        </div>
+                        <div class="widget-body am-fr">
+
+                            <form class="am-form tpl-form-border-form tpl-form-border-br" id="search_form">
+                                <div class="am-form-group">
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">角色名 </label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" name="role_name" id="user-name"
+                                               placeholder="请输入角色名">
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">描述名 </label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" name="role_desc" id="user-name"
+                                               placeholder="请输入描述名">
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">权限分配 </label>
+                                    <div class="am-u-sm-9">
+                                        <label class="am-checkbox-inline">
+                                            <input type="checkbox" name="quanxuan" value="1" onclick="choosebox(this)"
+                                                   minchecked="2" maxchecked="4" required=""
+                                                   class="am-active am-field-error quanbu"> 全部
+                                        </label>
+
+                                    </div>
+                                </div>
+
+                                {volist name="result" id="pi" key="k" }
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">{$pi.permission_name} <input
+                                            value="{$pi.permission_id}" cka="mod-system{$pi.permission_id}"
+                                            type="checkbox"><span class="zi"> 全部</span></label>
+                                    <div class="am-u-sm-9" style="border-left: 1px dotted #6f6f6f;">
+                                        {volist name="resulttow" id="vo" }
+                                            {if condition="$vo.module_id == $pi.permission_id " }
+                                                <label class="am-checkbox-inline">
+                                                    <input type="checkbox" value="{$vo.permission_id}"
+                                                           ck="mod-system{$vo.module_id}" name="act_list[]" minchecked="2"
+                                                           maxchecked="4" required="" class="am-active am-field-error">
+                                                    {$vo.permission_name}
+                                                </label>
+                                            {/if}
+                                        {/volist}
+                                    </div>
+                                </div>
+                                {/volist}
+
+                                <div class="am-form-group">
+                                    <div class="am-u-sm-9 am-u-sm-push-3">
+                                        <button type="button" onclick="option(this,'{:url('Aut/admin_role_add_ajax')}')"
+                                                class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+</div>
+<script src="http://cdn.bootcss.com/amazeui/2.7.2/js/amazeui.min.js"></script>
+<script src="__PUBLIC__/js/amazeui.datatables.min.js"></script>
+<script src="__PUBLIC__/js/dataTables.responsive.min.js"></script>
+<script src="__PUBLIC__/js/app.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $(":checkbox[cka]").click(function () {
+            var $cks = $(":checkbox[ck='" + $(this).attr("cka") + "']");
+            if ($(this).is(':checked')) {
+                $cks.each(function () {
+                    $(this).prop("checked", true);
+                });
+
+                var shuzi = 0;
+                var i = 0;
+                $('input:checkbox[ck]:checkbox').each(function (k) {
+                    shuzi = k;
+                })
+                $('input:checkbox[ck]:checked').each(function (k) {
+                    i++;
+                })
+                //alert(i);
+                if (shuzi + 1 == i) {
+                    $('.quanbu').prop("checked", true);
+                }
+
+            } else {
+                $('.quanbu').removeAttr('checked');
+                $cks.each(function () {
+                    $(this).removeAttr('checked');
+                });
+            }
+        });
+
+        $(":checkbox[ck]").click(function () {
+            var $ckss = $(":checkbox[cka='" + $(this).attr("ck") + "']");
+
+            if ($(this).is(':checked')) {
+                var shuzi = 0;
+                var shuzi2 = 0;
+                var i = 0;
+                var v = 0;
+                $('input:checkbox[ck]:checkbox').each(function (k) {
+                    shuzi = k;
+                })
+                $('input:checkbox[ck]:checked').each(function (k) {
+                    i++;
+                })
+                $("input:checkbox[ck='" + $(this).attr("ck") + "']").each(function (k) {
+                    shuzi2 = k;
+                })
+                $("input:checkbox[ck='" + $(this).attr("ck") + "']:checked").each(function (k) {
+                    v++;
+                })
+
+                if (shuzi2 + 1 == v) {
+                    $(":checkbox[cka='" + $(this).attr("ck") + "']").prop("checked", true);
+                }
+
+                if (shuzi + 1 == i) {
+                    $('.quanbu').prop("checked", true);
+                }
+                // alert(number);
+
+            } else {
+                var $ckss = $(":checkbox[cka='" + $(this).attr("ck") + "']");
+                $ckss.removeAttr('checked');
+                $('.quanbu').removeAttr('checked');
+
+            }
+        });
+
+    });
+
+
+    function choosebox(o) {
+        var vt = $(o).is(':checked');
+        if (vt) {
+            $('input[type=checkbox]').prop('checked', vt);
+        } else {
+            $('input[type=checkbox]').removeAttr('checked');
+        }
+    }
+
+</script>
+</body>
+
+</html>

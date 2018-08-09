@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>后台管理主页</title>
+    <meta name="description" content="后台管理主页">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="__PUBLIC__/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="__PUBLIC__/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <script src="http://cdn.bootcss.com/echarts/3.3.2/echarts.min.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css" />
+    <link rel="stylesheet" href="__PUBLIC__/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="__PUBLIC__/css/app.css">
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="__PUBLIC__/jss/dialog/layer.js"></script>
+    <script src="__PUBLIC__/jss/dialog.js"></script>
+    <script src="__PUBLIC__/js/jquery.form.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/common.js?v=001"></script>
+</head>
+
+<body data-type="widgets">
+    <script src="__PUBLIC__/js/theme.js"></script>
+    <div class="am-g tpl-g">
+      {include file="Index/header" /}
+
+        <!-- 内容区域 -->
+        <div class="tpl-content-wrapper">
+
+            <div class="row-content am-cf">
+
+                <div class="row">
+
+                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                        <div class="widget am-cf">
+                            <div class="widget-head am-cf">
+                                <div class="widget-title am-fl">管理员添加</div>
+                                <div class="widget-function am-fr">
+                                    <a href="javascript:;" class="am-icon-cog"></a>
+                                </div>
+                            </div>
+                            <div class="widget-body am-fr">
+
+                                <form class="am-form tpl-form-border-form tpl-form-border-br" id="search_form">
+
+
+                                    <div class="am-form-group">
+                                        <label for="user-weibo" class="am-u-sm-3 am-form-label">头像 </label>
+                                        <div class="am-u-sm-9">
+                                            <div class="am-form-group am-form-file">
+                                                <div class="tpl-form-file-img">
+                                                    <img src="" alt="" id="img1">
+                                                </div>
+                                                <button type="button" class="am-btn am-btn-danger am-btn-sm">
+                                                    <i class="am-icon-cloud-upload"></i> 添加封面图片</button>
+                                                <input id="uploadfile1" type="file" name="img" onchange="preview(1)" multiple>
+                                                <small>尺寸：100*100</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="am-form-group">
+                                        <label for="user-name" class="am-u-sm-3 am-form-label">用户名 </label>
+                                        <div class="am-u-sm-9">
+                                            <input type="text" class="tpl-form-input" name="user_name" id="user-name" required placeholder="请输入用户名">
+                                        </div>
+                                    </div>
+
+                                    <div class="am-form-group">
+                                        <label for="user-name" class="am-u-sm-3 am-form-label">密码 </label>
+                                        <div class="am-u-sm-9">
+                                            <input type="text" class="tpl-form-input" name="password" id="user-name" required placeholder="请输密码">
+                                        </div>
+                                    </div>
+
+                                    <div class="am-form-group">
+                                        <label for="user-phone" class="am-u-sm-3 am-form-label">角色 <span class="tpl-form-line-small-title">Author</span></label>
+                                        <div class="am-u-sm-9">
+                                            <select data-am-selected="{searchBox: 1}" name="role_id" style="display: none;">
+                                              {volist name="result" id="vo"}
+                                                <option value="{$vo.role_id}">{$vo.role_name}</option>
+                                              {/volist}
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="am-form-group">
+                                        <label class="am-u-sm-3 am-form-label">邮箱地址 </label>
+                                        <div class="am-u-sm-9">
+                                            <input type="email" name="email" placeholder="输入邮箱地址">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="am-form-group">
+                                        <label for="user-weibo" class="am-u-sm-3 am-form-label">备注 </label>
+                                        <div class="am-u-sm-9">
+                                            <input type="text" id="user-weibo" name="memo" placeholder="备注">
+                                            <div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="am-form-group">
+                                        <label for="user-intro" class="am-u-sm-3 am-form-label">启用账号</label>
+                                        <div class="am-u-sm-9">
+                                            <div class="tpl-switch">
+                                                <input type="checkbox" name="statu" class="ios-switch bigswitch tpl-switch-btn" checked="">
+                                                <div class="tpl-switch-btn-view">
+                                                    <div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="am-form-group">
+                                        <div class="am-u-sm-9 am-u-sm-push-3">
+                                            <button type="button" onclick="option(this,'{:url('Aut/admin_add_ajax')}')" class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="http://cdn.bootcss.com/amazeui/2.7.2/js/amazeui.min.js"></script>
+    <script src="__PUBLIC__/js/amazeui.datatables.min.js"></script>
+    <script src="__PUBLIC__/js/dataTables.responsive.min.js"></script>
+    <script src="__PUBLIC__/js/app.js"></script>
+
+</body>
+
+</html>

@@ -9,7 +9,13 @@
 namespace app\admin\model;
 
 
-class admin
-{
+use think\Model;
 
+class Admin extends Model
+{
+    protected $hidden = ['delete_time','update_time','create_time'];
+
+    public function adminrole(){
+        return $this->hasMany('AdminRole');
+    }
 }
