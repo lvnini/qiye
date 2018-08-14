@@ -1,0 +1,99 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="{$system.WZMS.value}">
+  <meta name="keywords" content="{$system.WZGJZ.value}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{$system.WZBT.value}</title>
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="icon" type="image/png" href="__UPLOADS__/{$system.LOGO.value}">
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="__UPLOADS__/{$system.LOGO.value}">
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+  <link rel="apple-touch-icon-precomposed" href="__UPLOADS__/{$system.LOGO.value}">
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="__UPLOADS__/{$system.LOGO.value}">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+
+  <link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/app.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/common.css">
+  <style>
+    .neirong{margin: 3rem 0 ;}
+    .zhutiwenzhang{border-right: 1px solid #eee;}
+    .bottomNo{margin-bottom: 0;}
+    .am-list p{color: #222;}
+    .am-list span{margin-left: 11px;color: #999999;}
+    h2{margin-left: 11px;}
+
+  </style>
+</head>
+<body>
+  {include file="common/header" /}
+  <!-- 主体内容 -->
+  <div class="am-text-center">
+    <!-- 面包屑 -->
+    <div class="am-g am-g-fixed am-padding-sm">
+        <ol class="am-breadcrumb am-breadcrumb-slash am-text-left">
+            <li><a href="{:url('index/index')}">首页</a></li>
+            <li>品牌展馆</li>
+            <li><a href="{:url('index/info')}">最新资讯</a></li>
+            <li class="am-active">资讯详情</li>
+        </ol>
+    </div>
+    
+    <!-- 资讯内容 -->
+    <div class="am-g am-g-fixed">
+      <h1 class="am-text-left">资讯详情</h1>
+      <hr class="bottomNo" />
+      <div class="am-g doc-am-g">
+        <div class="am-u-sm-12 am-u-md-9 am-u-lg-9 zhutiwenzhang am-padding-top-sm">
+          <div class="am-text-left">
+              <h1 >{$result.title}</h1>
+              <small >{$result.create_time}</small>
+          </div>
+          <div class="neirong">
+            {$result.content}
+          </div>
+        </div>
+        <div class="am-u-sm-12 am-u-md-3 am-u-lg-3 am-text-left am-padding-top-sm">
+          <h2>最新资讯</h2>
+          <ul class="am-list">
+            {volist name="infoNew" id="vo"}
+              <li>
+                <a href="{:url('index/info_detail?id='.$vo.article_id)}">
+                  <p class="am-text-sm">{$vo.title}</p>
+                  <span class="am-text-xs">{$vo.create_time|strtotime|date="Y-m-d",###} ></span>
+                </a>
+              </li>
+            {/volist}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  {include file="common/footer" /}
+  {include file="common/common" /}
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!-- [if lte IE 8 ]> -->
+<!-- <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__PUBLIC__/js/amazeui.ie8polyfill.min.js"></script> -->
+<!-- <![endif] -->
+<script src="__PUBLIC__/js/amazeui.min.js"></script>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!-- 头部 -->
+<div class="am-g am-g-fixed">
+  <h1 class="am-topbar-brand diy-logo">
+    <a href="#">
+      <img src="__UPLOADS__/{$system.LOGO.value}" width="100px" alt="">
+    </a>
+  </h1>
+</div>
+<header class="am-topbar am-topbar-inverse " data-am-sticky>
+  <div class="am-container">
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse-4'}">
+      <span class="am-sr-only">导航切换</span>
+      <span class="am-icon-bars"></span>
+    </button>
+    <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse-4">
+      <ul class="am-nav am-nav-pills am-topbar-nav am-nav-justify">
+        <li>
+          <a href="{:url('index/index')}">首页</a>
+        </li>
+        <li class="am-dropdown" data-am-dropdown>
+          <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+            品牌展馆
+            <span class="am-icon-caret-down"></span>
+          </a>
+          <ul class="am-dropdown-content">
+            <li>
+              <a href="{:url('index/info')}">最新资讯</a>
+            </li>
+            <li>
+              <a href="{:url('index/about')}">关于左之堂</a>
+            </li>
+            <!-- <li class="am-disabled"><a href="#">臣妾做不到</a></li> -->
+          </ul>
+        </li>
+        <li class="am-dropdown" data-am-dropdown>
+          <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+            产品展馆
+            <span class="am-icon-caret-down"></span>
+          </a>
+          <ul class="am-dropdown-content">
+            <li>
+              <a href="{:url('index/product','id=0')}">健字号</a>
+            </li>
+            <li>
+              <a href="{:url('index/product','id=1')}">食字号</a>
+            </li>
+          </ul>
+        </li>
+        <li class="am-dropdown" data-am-dropdown>
+          <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+            植物甾醇专业馆
+            <span class="am-icon-caret-down"></span>
+          </a>
+          <ul class="am-dropdown-content">
+              <li>
+                <a href="{:url('index/specialty','id=0')}">植物甾醇介绍</a>
+              </li>
+              <li>
+                <a href="{:url('index/specialty','id=1')}">植物甾醇Q&A</a>
+              </li>
+              <li>
+                <a href="{:url('index/specialty','id=2')}">其他合作产品</a>
+              </li>
+          </ul>
+        </li>
+        <li class="am-dropdown" data-am-dropdown>
+          <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+            健康科普馆
+            <span class="am-icon-caret-down"></span>
+          </a>
+          <ul class="am-dropdown-content">
+            <li>
+              <a href="{:url('index/fitness','id=0')}">国家认证与区别</a>
+            </li>
+            <li>
+              <a href="{:url('index/fitness','id=1')}">心脑血管疾病</a>
+            </li>
+          </ul>
+        </li>
+        <li class="am-dropdown" data-am-dropdown>
+          <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+            客服中心
+            <span class="am-icon-caret-down"></span>
+          </a>
+          <ul class="am-dropdown-content">
+            <li>
+              <a href="{:url('index/service','id=0')}">合作联系</a>
+            </li>
+            <li>
+              <a href="{:url('index/service','id=1')}">客服联系</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<script>
+    // $(".am-dropdown").mouseleave(function(){
+    //   // $(this).dropdown('close');
+    //   $(this).removeClass('am-active');
+    //   // return xiangshi(this,0);
+    // }).mouseenter(function(){ 
+    //   $(this).dropdown('open');
+    //   $(this).addClass('am-active');
+    //   // return xiangshi(this,1);
+    // });
+
+    // function xiangshi(vo,i) {
+    //   if (i == 1) {
+    //     // console.log(1);
+    //     $(vo).addClass('am-active');
+    //     $(vo).dropdown('open');
+    //     // $(vo).children('.am-dropdown-content').addClass('am-dropdown-animation');
+    //   }else{
+    //     // console.log(2);
+    //     $(vo).dropdown('close');
+    //     $(vo).removeClass('am-active');
+    //     // $(vo).children('.am-dropdown-content').removeClass('am-dropdown-animation');
+    //   }
+    // }
+</script>

@@ -1,0 +1,321 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="{$system.WZMS.value}">
+  <meta name="keywords" content="{$system.WZGJZ.value}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{$system.WZBT.value}</title>
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="icon" type="image/png" href="__UPLOADS__/{$system.LOGO.value}">
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="__UPLOADS__/{$system.LOGO.value}">
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+  <link rel="apple-touch-icon-precomposed" href="__UPLOADS__/{$system.LOGO.value}">
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="__UPLOADS__/{$system.LOGO.value}">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+
+  <link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/app.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/common.css?v=3">
+  <style>
+    p{margin:0;}
+    .erwima{    background: #2c5b36;padding: 1rem;margin: 2rem auto;}
+    
+    .wenti{margin-bottom: 3rem;}
+    .wenti li{margin-bottom: 2rem;}
+    .wenti .xuguan{background-color: #efefef;border-radius: 5px;border-top: 1px dashed #2c5b36;overflow: hidden;}
+    .wenti .xuguan p{margin: 2rem 3rem;}
+    .wenti .xuguan span{float: right;top: -1rem;position: relative;right: 1rem;border-radius: 1rem;width: 0.68rem;height: 0.8rem;background: #2c5b36;}
+    .yingchang{display: none;}
+    .jiazai{background-color: #efefef;padding: 1rem;}
+    .jiazai h2{margin: 0;}
+
+    #tab1 li{height: 18rem;margin: 2rem 0;}
+    #tab1 .shijianzhou i{padding: 0.5rem;border-radius: 1rem;background: #2c5b36;position: absolute;}
+    #tab1 .shijianzhou i.re{right: 0;}
+    #tab1 .shijianzhou span{background: #2c5b36;padding: 0.5rem;position: absolute;right: -0.5rem;border-radius: 50%;}
+    #tab1 li .am-u-sm-2{padding: 0;}
+    #tab1 .henxiang{width: 4rem;border-bottom: 1px dashed #2c5b36;float: right;position: relative;top: 3rem;}
+    #tab1 .henxiang i{padding: 0.5rem;border-radius: 1rem;background: #2c5b36;position: absolute;top: -0.5rem;}
+    
+    #tab1 .shulian{border-right: 1px solid #2c5b36;}
+
+  </style>
+</head>
+<body>
+  {include file="common/header" /}
+  <!-- 主体内容 -->
+  <div class="am-text-center">
+    <!-- 轮播 -->
+    <div class="am-g am-g-fixed">
+      <div class="am-slider am-slider-default" id="your-slider" data-am-flexslider id="demo-slider-0">
+        <ul class="am-slides">
+          {volist name="result.items" id="vo"}
+            <li><a href="{$vo.link? $vo.link : 'javascript:;'}" ><img src="__UPLOADS__/{$vo.img_url}" alt="{$vo.key_word}"/></a></li>
+          {/volist}
+        </ul>
+      </div>
+    </div>
+
+    <!-- 面包屑 -->
+    <div class="am-g am-g-fixed am-padding-sm">
+        <ol class="am-breadcrumb am-breadcrumb-slash am-text-left">
+            <li><a href="{:url('index/index')}">首页</a></li>
+            <li class="am-active">植物甾醇专业馆</li>
+            <!-- <li class="am-active">植物甾醇介绍</li> -->
+        </ol>
+    </div>
+    
+    <!-- 资讯内容 -->
+    <div class="am-g am-g-fixed">
+      <div class="am-tabs" id="someTabs" data-am-tabs="{noSwipe: 1}">
+
+          <ul class="am-tabs-nav am-nav am-nav-tabs am-u-sm-12 am-u-md-3 am-u-lg-3 ">
+            <li class="am-active"><a href="#tab1">植物甾醇介绍<i class="am-icon-caret-right"></i></a></li>
+            <li><a href="#tab2">植物甾醇Q&A<i class="am-icon-caret-right"></i></a></li>
+            <li><a href="#tab3">其他合作产品<i class="am-icon-caret-right"></i></a></li>
+          </ul>
+
+          <div class="am-tabs-bd am-u-sm-12 am-u-md-9 am-u-lg-9 am-text-left">
+            <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+              <h1 class="am-text-center">植物甾醇介绍</h1>
+              <p class="green1 am-text-center">深耕18年，“五个一”为您的健康负责</p>
+              <div class="am-g doc-am-g shijianzhou am-margin-top-xl">
+                <div class="am-u-sm-12 am-u-md-6 am-u-lg-6 shulian" >
+                  <span class="dian"></span>
+                  <ul>
+                    <li>
+                      <img src="__PUBLIC__/img/specialty_01.png" width="100%" alt="">
+                    </li>
+                    <li class="am-vertical-align">
+                      <div class="am-g am-vertical-align-middle">
+                        <div class="am-u-sm-10">
+                            <p class="am-text-xs">早在 1953 年，国内外的科学家就已经开始进行对植物甾醇的研究。六十多年的时间内， 全世界已有超过 1000 次权威实验，被世界十多个国家医学界及医药工商界广大认同，被世界科学家们誉为“生命的钥匙”。</p>
+                        </div>
+                        <div class="am-u-sm-2">
+                            <div class="henxiang"><i></i></div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <img src="__PUBLIC__/img/specialty_03.png" width="100%" alt="">
+                    </li>
+                  </ul>
+                </div>
+                <div class="am-u-sm-12 am-u-md-6 am-u-lg-6">
+                    <ul>
+                      <li class="am-vertical-align">
+                        <div class="am-g am-vertical-align-middle">
+                          <div class="am-u-sm-2">
+                              <div class="henxiang"><i class="re"></i></div>
+                          </div>
+                          <div class="am-u-sm-10">
+                              <p class="am-text-xs">早在 1953 年，国内外的科学家就已经开始进行对植物甾醇的研究。六十多年的时间内， 全世界已有超过 1000 次权威实验，被世界十多个国家医学界及医药工商界广大认同，被世界科学家们誉为“生命的钥匙”。</p>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <img src="__PUBLIC__/img/specialty_02.png" width="100%" alt="">
+                      </li>
+                      <li class="am-vertical-align">
+                        <div class="am-g am-vertical-align-middle">
+                          <div class="am-u-sm-2">
+                              <div class="henxiang"><i class="re"></i></div>
+                          </div>
+                          <div class="am-u-sm-10">
+                              <p class="am-text-xs">早在 1953 年，国内外的科学家就已经开始进行对植物甾醇的研究。六十多年的时间内， 全世界已有超过 1000 次权威实验，被世界十多个国家医学界及医药工商界广大认同，被世界科学家们誉为“生命的钥匙”。</p>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="am-tab-panel am-fade" id="tab2">
+
+                <ul class="wenti">
+                  <li>
+                    <h2 class="green1">Q：植物甾醇是什么物质？</h2>
+                    <div class="xuguan">
+                        <p class="am-text-sm">植物甾醇（Phytosterol，plant sterol）是一种存在于植物中的天然活性物质，并不是合成的化学物质。它广泛分布于自然界，存在于各种植物油、坚果和植物种子、豆类以及谷类中，也存在于其它植物性食物如蔬菜水果中，我们每天食用的蔬果当中都含有植物甾醇（百度百科“植物甾醇”亦有记载）。</p>
+                        <span ></span>
+                    </div>
+                  </li>
+                  <li>
+                    <h2 class="green1">Q：植物甾醇是如何被发现的？</h2>
+                    <div class="xuguan">
+                        <p class="am-text-sm">科学家们一直致力于从我们食用的食物中挖掘对人体有益的物质，希望从天然的动植物上提取对人体有益的物质，帮助人类调整体质或者治疗疾病；早在 1953 年，国内外的科学家就已经开始进行对植物甾醇的研究，过去 50 多年来人们一直在研究植物甾醇和植物甾醇酯以及它们在降低胆固醇水平方面的作用，并在超过 150 次临床实验中得到了证实。</p>
+                        <span ></span>
+                    </div>
+                  </li>
+                  <li>
+                    <h2 class="green1">Q：植物甾醇这个物质有什么安全认证吗？</h2>
+                    <div class="xuguan">
+                        <p class="am-text-sm">六十多年的时间内， 全世界已有超过 1000 次权威实验，被世界十多个国家医学界及医药工商界广大认同，被世界科学家们誉为“生命的钥匙”；欧州共同体批准植物甾醇作为多种食物中的成分。欧盟食品安全局的安全评估已经确定没有任何安全顾虑。在美国植物甾醇和植物甾醇酯得到美国FDA的GRAS（“一般认为安全的”）的认可。</p>
+                        <span ></span>
+                    </div>
+                  </li>
+                  <li>
+                    <h2 class="green1">Q：植物甾醇如何降低胆固醇？</h2>
+                    <div class="xuguan">
+                        <p class="am-text-sm">这首先要从了解胆固醇开始。胆固醇过高和心血管疾病的关系，已经是大多数人都知道的常识了。世界卫生组织的调查也显示，全球范围内三分之一的心血管疾病均源于高胆固醇。但事实上，胆固醇也有好坏之分：其中的高密度胆固醇被称为“好胆固醇”，可以帮助构筑细胞膜、合成激素，清洁疏通动脉，而低密度胆固醇也就是“坏胆固醇”则刚好相反。而植物甾醇则是通过减少从膳食中摄入的以及身体制造的胆固醇在身体中累积，将没有吸收或累积的胆固醇排出体外。这样，血液总胆固醇和“有害”(LDL) 胆固醇量减少， 而“有益”(HDL) 胆固醇不受影响。</p>
+                        <span ></span>
+                    </div>
+                  </li>
+                  <li>
+                    <h2 class="green1">Q：所有的植物甾醇人体都能吸收吗？</h2>
+                    <div class="xuguan">
+                        <p class="am-text-sm">并不是的！植物甾醇的分子结构本身比较特殊，不容易被人体所吸收，需要通过特殊技术提取才能适合人体吸收；所以市面上大部分产品所标注的植物甾醇含量非常大的产品，里面所含的植物甾醇都很难被人体吸收。</p>
+                        <span ></span>
+                    </div>
+                  </li>
+                  <li class="yingchang">
+                    <h2 class="green1">Q：左之堂植物甾醇就可以被人体吸收吗？</h2>
+                    <div class="xuguan">
+                        <p class="am-text-sm">当然可以！因为左之堂植物甾醇产品通过国际首创专利和先进制备技术，干扰植物甾醇的再结晶，或使其成为微结晶，激活植物甾醇的生物活性，强化吸收的专利技术，使植物甾醇可以在人体内发挥最大的效果作用。该制备技术是左之堂拥有的专利技术，并不是所有销售植物甾醇的品牌都能制作用可供人体吸收的产品，这一点希望大家要了解清楚再购买哦！以防购买了昂贵的产品，又没有对应的效果。</p>
+                        <span ></span>
+                    </div>
+                  </li>
+                  <li class="yingchang">
+                    <h2 class="green1">Q：“既然吃的蔬果里面都有植物甾醇，我为什么还需要另外买来吃？”</h2>
+                    <div class="xuguan">
+                        <p class="am-text-sm">这里有涉及两个问题：</p>
+                        <p class="am-text-sm">第一，前面有提及到，植物甾醇这一种植物本身比较特殊，需要已通过制备技术才能有效被人体吸收；其次，植物甾醇需要每天吸收至少2g才能“启动工作”；所以我们每天食用的蔬果里面所含的植物甾醇对于人体的效果基本上作为接近零。</p>
+                        <span ></span>
+                    </div>
+                  </li>
+                  <!-- <li class="yingchang">
+                    <h2 class="green1">为什么植物甾醇每天需要摄入至少2g才能产生效用？</h2>
+                    <div class="xuguan">
+                        <p class="am-text-sm"></p>
+                        <span ></span>
+                    </div>
+                  </li> -->
+                  <li class="yingchang">
+                    <h2 class="green1">Q：是不是只要我每天摄入至少2g植物甾醇，就能保证胆固醇不上升？</h2>
+                    <div class="xuguan">
+                        <p class="am-text-sm">每天摄入定量植物甾醇，并且配合健康饮食、正常作息以及运动，是可以控制胆固醇的升高；但如果您认为只要每天服用植物甾醇，就可以继续大鱼大肉、重盐重油、日夜颠倒作息、烟酒常伴等恶习，那么恐怕植物甾醇也无能为力，毕竟植物甾醇并非“神药”</p>
+                        <span ></span>
+                    </div>
+                  </li>
+                  <li class="yingchang">
+                    <h2 class="green1">Q：是不是食用植物甾醇，就可以不用吃药？</h2>
+                    <div class="xuguan">
+                        <p class="am-text-sm">首先植物甾醇是保健品并非药品，不能将保健品等同于药品！保健品更适合在“亚健康”阶段使用调节身体，如果已经从“亚健康”变成“疾病患者”就需要遵循医嘱使用正规药品进行治疗。</p>
+                        <p class="am-text-sm">我们更建议在发现有胆固醇高的“亚健康”阶段使用，同时配合饮食、作息的调整，全面改善身体状况；但保健品并不具备药品的“强治疗效果”无法对疾病产生针对性的治疗效用，但若果您是心脑血管疾病患者，在听从医嘱治疗的同事，可以同步使用植物甾醇产品协助身体恢复，促进治疗效果。</p>
+                        <span ></span>
+                    </div>
+                  </li>
+                  <li class="yingchang">
+                    <h2 class="green1">Q：食用植物甾醇产品会过多降低我的胆固醇吗？</h2>
+                    <div class="xuguan">
+                        <p class="am-text-sm">不会。植物甾醇不会将胆固醇降低到缺乏的程度，您的身体会制造足以维持平衡需要的胆固醇。</p>
+                        <span ></span>
+                    </div>
+                  </li>
+                  <li class="yingchang">
+                    <h2 class="green1">Q：如果我停止食用植物甾醇产品会怎样？</h2>
+                    <div class="xuguan">
+                        <p class="am-text-sm">如果保持合理的饮食结构，您的胆固醇会维持在目前的水平，不然会回到之前的水平。</p>
+                        <span ></span>
+                    </div>
+                  </li>
+                  <li class="yingchang">
+                    <h2 class="green1">Q：是不是吃的越多植物甾醇，效果越好？</h2>
+                    <div class="xuguan">
+                        <p class="am-text-sm">并不是的。植物甾醇的效果，取决于两个关键点：第一是否摄取足量植物甾醇，一般对标人群只要每天至少2g即可；第二，人体内是否有吸收到或者累积的“有害”胆固醇需要清除。</p>
+                          <p class="am-text-sm">前面（4）有阐述植物甾醇的工作原理：植物甾醇是通过减少从膳食中摄入的以及身体制造的胆固醇在身体中累积，将没有吸收或累积的胆固醇排出体外，在减少血液总胆固醇和“有害”(LDL) 胆固醇量的同时保证“有益”(HDL) 胆固醇不受影响。所以只要吸收够至少2g植物甾醇，同时您体内有过多的胆固醇累积，植物甾醇就会开始工作，摄取量与效果没有明显作用，毕竟保健品调理身体需要坚持，并非药品有强力效果。</p>
+                        <span ></span>
+                    </div>
+                  </li>
+                  <li class="yingchang">
+                    <h2 class="green1">Q：高脂血症患者每天服用植物甾醇的剂量是多少？</h2>
+                    <div class="xuguan">
+                        <p class="am-text-sm">中华医学会制定的《中国成人血脂异常防治指南》明确指出了血脂异常者每天应摄入 2.0g 植物甾醇或 3.4g 植物甾醇酯。</p>
+                        <span ></span>
+                    </div>
+                  </li>
+                  <li class="yingchang">
+                    <h2 class="green1">Q：植物甾醇产品适合所有人吗？</h2>
+                    <div class="xuguan">
+                        <p class="am-text-sm">建议具有高胆固醇水平的人服用植物甾醇产品。孕妇和哺乳期妇女以及 5 岁以下儿童具有特殊饮食需要，不宜服用 含植物甾醇的功能性食品或补充剂。</p>
+                        <span ></span>
+                    </div>
+                  </li>
+                  <li class="yingchang">
+                    <h2 class="green1">Q：我可以同时服用植物甾醇产品以及降低胆固醇的药物吗？</h2>
+                    <div class="xuguan">
+                        <p class="am-text-sm">如果您的胆固醇高，您可能已经在服用降低胆固醇的药物（他汀和纤维酸衍生物“fibrate“ 类药物），左之堂植物甾醇能够在不提高药物剂量的情况下，安全有效配合降低胆固醇的药物，提高降低胆固醇的效果。两种方法的机理各不相同，效果几乎可以累加。</p>
+                        <span ></span>
+                    </div>
+                  </li>
+                  <li class="yingchang">
+                    <h2 class="green1">Q：有可能我摄入过多植物甾醇吗？</h2>
+                    <div class="xuguan">
+                        <p class="am-text-sm">通常，很少有过量摄入含植物甾醇食物的情况，而消费者通常食用含植物甾醇食物的量不足以带来确实好处 (EFSA Journal2008(欧洲食品安全局杂志 2008))。</p>
+                        <span ></span>
+                    </div>
+                  </li>
+                </ul>
+                <div class="jiazai am-text-center" onclick="jiazai(this)">
+                  <h2>加载更多 +</h2>
+                </div>
+                <div class="am-text-center">
+                    <div class="am-g doc-am-g">
+                        <div class="am-u-sm-12 am-u-md-3 am-u-lg-3 erwima am-u-sm-centered">
+                          <img src="__UPLOADS__/{$system.GZH.value}" width="100%" alt="">
+                        </div>
+                    </div>
+                    <p>更多问题，欢迎添加“左之堂植物甾醇”微信公众号，了解更多或者向后台提问哦！</p>
+                </div>
+            </div>
+
+            <div class="am-tab-panel am-fade" id="tab3">
+                <h1>左之堂植物甾醇其他合作产品</h1>
+                <!-- <hr/> -->
+                <p class="am-text-sm">植物甾醇原料在美国、日本等科技发达国家已经被应用在动物饲养上，从源头上降低食物胆固醇的行程，让人们直接食用优质肉品，降低胆固醇增高的风险。左之堂将会发挥专利技术的优势，与更多不同的合作产品，让植物甾醇与您的生活更好融合，让健康常伴您的左右,敬请期待！</p>
+            </div>
+          </div>
+
+      </div>
+
+        
+    </div>
+
+
+  </div>
+  {include file="common/footer" /}
+  {include file="common/common" /}
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!-- [if lte IE 8 ]> -->
+<!-- <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__PUBLIC__/js/amazeui.ie8polyfill.min.js"></script> -->
+<!-- <![endif] -->
+<script src="__PUBLIC__/js/amazeui.min.js"></script>
+<script src="__PUBLIC__/js/common.js"></script>
+<script>
+  function jiazai(vo) {
+    $(vo).css('display','none');
+    $('.yingchang').css('display','block');
+  }
+
+  {if condition="isset($_GET['id'])"}
+    $('#someTabs').tabs('open', {$_GET['id']});
+  {/if}
+</script>
+</body>
+</html>

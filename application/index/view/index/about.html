@@ -1,0 +1,132 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="{$system.WZMS.value}">
+  <meta name="keywords" content="{$system.WZGJZ.value}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{$system.WZBT.value}</title>
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="icon" type="image/png" href="__UPLOADS__/{$system.LOGO.value}">
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="__UPLOADS__/{$system.LOGO.value}">
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+  <link rel="apple-touch-icon-precomposed" href="__UPLOADS__/{$system.LOGO.value}">
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="__UPLOADS__/{$system.LOGO.value}">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+
+  <link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/app.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/common.css?v=3">
+  <style>
+    lash>li+li:before { content: '|' ;}
+    p{margin:0;}
+    .zuixing ul,.zuixing li{list-style: disc;clear: both;}
+    .zuixing ul a{color: #222;}
+    .zuixing ul a:hover{color: #467334;}
+    .zuixing ul{margin-left: 2rem;}
+
+    small{font-size: 1.1rem;}
+    .wangqi li{margin: 1rem 0 ;}
+    
+    .beijingwenzi{background-color: #f3f6f1;margin: 1rem 0 0;padding: 0.7rem;color: #2c5b36;font-weight: bold;}
+    
+  </style>
+</head>
+<body>
+  {include file="common/header" /}
+  <!-- 主体内容 -->
+  <div class="am-text-center">
+    <!-- 头图 -->
+    <div class="am-g">
+      <a href="{$result.items.0.link? $result.items.0.link : 'javascript:;'}" >
+        <img src="__UPLOADS__/{$result.items.0.img_url}" width="100%" alt="{$result.items.0.key_word}"/>
+      </a>
+    </div>
+
+    <!-- 面包屑 -->
+    <div class="am-g am-g-fixed am-padding-sm">
+        <ol class="am-breadcrumb am-breadcrumb-slash am-text-left">
+            <li><a href="{:url('index/index')}">首页</a></li>
+            <li>品牌展馆</li>
+            <li class="am-active">关于左之堂</li>
+        </ol>
+    </div>
+    
+    <!-- 资讯内容 -->
+    <div class="am-g am-g-fixed">
+      <div class="am-tabs" id="someTabs" data-am-tabs="{noSwipe: 1}">
+
+          <ul class="am-tabs-nav am-nav am-nav-tabs am-u-sm-12 am-u-md-3 am-u-lg-3 ">
+            <li class="am-active"><a href="#tab1">企业介绍<i class="am-icon-caret-right"></i></a></li>
+            <li><a href="#tab2">品牌故事<i class="am-icon-caret-right"></i></a></li>
+            <li><a href="#tab3">品牌愿景<i class="am-icon-caret-right"></i></a></li>
+          </ul>
+
+          <div class="am-tabs-bd am-u-sm-12 am-u-md-9 am-u-lg-9 am-text-left">
+            <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+              <h1 class="green1">企业介绍</h1>
+              <hr/>
+              <img src="__PUBLIC__/img/about_01.jpg" width="100%" alt="">
+              <p class="beijingwenzi am-text-sm">一个致力于充分发挥科研开发、技术创新能力，不断推进科研成果的产业化，创造绿色健康保健品的企业。</p>
+              <br>
+              <p class="am-text-sm">思胆诺生物技术有限公司（SiDanNuo Biotech Ltd.）成立于2009年，是一个由海内外医药科学研究人员发起，属生物技术开发导向型企业，主要致力于绿色、安全、无毒副作用治疗心脑血管疾病和前列腺疾病以及男女预防疾病、美容等产品的研制、开发、生产销售。</p>
+              <br>
+              <p class="am-text-sm">本公司拥有着高资历、高学位的研究人员，专业涉及现代医学，中医药学，计算机及化学合成等多门学科。公司人员有在世界一流的大学、医学研究机构和生物医药公司研究任职的经历，并与国内外医药大学、医院及制药公司的研究人员有着广泛的联系。</p>
+              <br>
+              <p class="am-text-sm">本公司目前的拳头产品是“左之堂植物甾醇鱼油胶囊”，是以高科技为基础的、符合绿色、天然、作用机制明确、有实际功效的生物科技产品。是本公司成立后首先取得国家食品药品监督管理局正是批文、完成中试、形成生产规模的获国家发明专利的产品。该项目也是国家级隆平高科技园引进的高新技术项目。</p>
+            </div>
+
+            <div class="am-tab-panel am-fade" id="tab2">
+                <h1 class="green1">企业介绍</h1>
+                <hr/>
+                <p class="am-text-sm">“黑心的钱我们不赚！做保健品需要对得起患者，更要对得起良心!”这是左之堂品牌创始人田宗鑫经常挂在嘴边的一句话，也是他这18年来未曾改变的价值观念。</p>
+                <br>
+                <p class="am-text-sm">早在2000年，田宗鑫与其团队就开始进行植物甾醇生物应用的研发，当时国内在此领域的研究基本为零。经过7年的研究，历经千万次的实验，研发项目于2007年获得国家知识产权局发明专利证书：“发明专利ZL03118020.5”。</p>
+                <br>
+                <p class="am-text-sm">2009年，思胆诺生物技术有限公司成立。同年注册“左之堂”为公司药品、保健品商标，并向国家食品药品监督管理局申报“左之堂牌植物甾醇鱼油胶囊”保健食品。经过3年严格的审核，终于在2011年，“左之堂牌植物甾醇鱼油胶囊”获国家食品药品监督管理局批准，正式上市！</p>
+                <br>
+                <p class="am-text-sm am-margin-bottom-lg">产品一经进入市场，田宗鑫很快就面临了这么一个抉择。保健品市场鱼龙混杂，许多品牌商/代理商为了追求高额的利润，不惜夸大保健品的功效，把产品当成药品销售给患者，甚至危及患者的健康！田宗鑫坚决不肯这么做，他说：保健品就是保健品，黑心的钱我们不赚！</p>
+                <img src="__PUBLIC__/img/about_02.jpg" width="100%" alt="">
+            </div>
+
+            <div class="am-tab-panel am-fade" id="tab3">
+                <h1 class="green1">企业介绍</h1>
+                <hr/>
+                <img src="__PUBLIC__/img/about_03.jpg" width="100%" alt="">
+            </div>
+          </div>
+
+      </div>
+
+        
+    </div>
+
+
+  </div>
+  {include file="common/footer" /}
+  {include file="common/common" /}
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!-- [if lte IE 8 ]> -->
+<!-- <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__PUBLIC__/js/amazeui.ie8polyfill.min.js"></script> -->
+<!-- <![endif] -->
+<script src="__PUBLIC__/js/amazeui.min.js"></script>
+<script src="__PUBLIC__/js/common.js"></script>
+<script>
+  // $('#someTabs').tabs('open', 1);
+</script>
+</body>
+</html>

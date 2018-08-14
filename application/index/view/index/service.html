@@ -1,0 +1,120 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="{$system.WZMS.value}">
+  <meta name="keywords" content="{$system.WZGJZ.value}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{$system.WZBT.value}</title>
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="icon" type="image/png" href="__UPLOADS__/{$system.LOGO.value}">
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="__UPLOADS__/{$system.LOGO.value}">
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+  <link rel="apple-touch-icon-precomposed" href="__UPLOADS__/{$system.LOGO.value}">
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="__UPLOADS__/{$system.LOGO.value}">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+
+  <link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/app.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/common.css?v=3">
+  <style>
+    lash>li+li:before { content: '|' ;}
+    p{margin:0;}
+    .zuixing ul,.zuixing li{list-style: disc;clear: both;}
+    .zuixing ul a{color: #222;}
+    .zuixing ul a:hover{color: #467334;}
+    .zuixing ul{margin-left: 2rem;}
+
+    small{font-size: 1.1rem;}
+    .wangqi li{margin: 1rem 0 ;}
+    
+    .beijingwenzi{background-color: #f3f6f1;margin: 1rem 0 0;padding: 0.7rem;color: #2c5b36;font-weight: bold;}
+    .am-tabs-bd .erweima{width: 12rem;margin-left: 2.5rem;}
+    .am-tabs-bd p{color: #666666;font-size: 1.4rem;margin-left: 3.3rem;}
+    .am-tabs-bd h3{background-color: #2c5b36;color: #fff;padding: 0.8rem 2.3rem; display: -webkit-inline-box; margin-top: 0; border-radius: 0 2rem 2rem 0;}
+  </style>
+</head>
+<body>
+  {include file="common/header" /}
+  <!-- 主体内容 -->
+  <div class="am-text-center">
+    <!-- 面包屑 -->
+    <div class="am-g am-g-fixed am-padding-sm">
+        <ol class="am-breadcrumb am-breadcrumb-slash am-text-left">
+            <li><a href="{:url('index/index')}">首页</a></li>
+            <li>客服中心</li>
+        </ol>
+    </div>
+    
+    <!-- 资讯内容 -->
+    <div class="am-g am-g-fixed">
+      <div class="am-tabs" id="someTabs" data-am-tabs="{noSwipe: 1}">
+
+          <ul class="am-tabs-nav am-nav am-nav-tabs am-u-sm-12 am-u-md-3 am-u-lg-3 ">
+            <li class="am-active"><a href="#tab1">合作联系<i class="am-icon-caret-right"></i></a></li>
+            <li><a href="#tab2">客服联系<i class="am-icon-caret-right"></i></a></li>
+          </ul>
+
+          <div class="am-tabs-bd am-u-sm-12 am-u-md-9 am-u-lg-9 am-text-left">
+            <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+              <h1 class="green1">企业介绍</h1>
+              <hr/>
+              <h2>1)	公司地址</h2>
+              <h3>{$system.GSMC.value}</h3>
+              <p>地址：{$system.GSDZ.value}</p>
+              <p>电话：{$system.GSDH.value}</p>
+              <h2>1)	厂址</h2>
+              <h3>{$system.GCMC.value}</h3>
+              <p>地址：{$system.GCDZ.value}</p>
+              <p>电话：{$system.GCDH.value}</p>
+            </div>
+
+            <div class="am-tab-panel am-fade" id="tab2">
+                <h1 class="green1">企业介绍</h1>
+                <hr/>
+                <h2>1)	客服电话</h2>
+                <p>电话：{$system.KFDH.value}</p>
+                <h2>2)	微信号</h2>
+                <p>微信号：{$system.KFWX.value}</p>
+                <h2>3)	公众号二维码</h2>
+                <img src="__UPLOADS__/{$system.GZH.value}" class="erweima" width="100%" alt="">
+            </div>
+
+          </div>
+
+      </div>
+
+        
+    </div>
+
+
+  </div>
+  {include file="common/footer" /}
+  {include file="common/common" /}
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!-- [if lte IE 8 ]> -->
+<!-- <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__PUBLIC__/js/amazeui.ie8polyfill.min.js"></script> -->
+<!-- <![endif] -->
+<script src="__PUBLIC__/js/amazeui.min.js"></script>
+<script src="__PUBLIC__/js/common.js"></script>
+<script>
+  {if condition="isset($_GET['id'])"}
+    $('#someTabs').tabs('open', {$_GET['id']});
+  {/if}
+</script>
+</body>
+</html>

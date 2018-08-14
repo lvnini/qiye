@@ -1,0 +1,250 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="{$system.WZMS.value}">
+  <meta name="keywords" content="{$system.WZGJZ.value}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{$system.WZBT.value}</title>
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="icon" type="image/png" href="__UPLOADS__/{$system.LOGO.value}">
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="__UPLOADS__/{$system.LOGO.value}">
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+  <link rel="apple-touch-icon-precomposed" href="__UPLOADS__/{$system.LOGO.value}">
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="__UPLOADS__/{$system.LOGO.value}">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+
+  <link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/app.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/common.css?v=3">
+  <style>
+    p{margin:0;}
+    .erwima{    background: #2c5b36;padding: 1rem;margin: 2rem auto;}
+    
+    .wenti{margin-bottom: 3rem;}
+    .wenti li{margin-bottom: 2rem;}
+    .wenti .xuguan{background-color: #efefef;border-radius: 5px;border-top: 1px dashed #2c5b36;overflow: hidden;}
+    .wenti .xuguan p{margin: 2rem 3rem;}
+    .wenti .xuguan span{float: right;top: -1rem;position: relative;right: 1rem;border-radius: 1rem;width: 0.68rem;height: 0.8rem;background: #2c5b36;}
+    .yingchang{display: none;}
+    .jiazai{background-color: #efefef;padding: 1rem;}
+    .jiazai h2{margin: 0;}
+
+    pre{background-color: initial;border: 0px ;padding:0px;color: rgba(44, 91, 54, 0.6);}
+    .goumai{width: 12rem;position: absolute;right: 0;bottom: 0;}
+
+    @media only screen and (max-width: 640px){
+      .goumai{position: relative;}
+    }
+
+    .tubiankuans{margin: 1rem 0;padding: 0 3rem;}
+    .tubiankuans div{box-shadow: 0 3px 15px 0px rgba(0, 0, 0, 0.1);padding: 2rem;min-height: 10rem;}
+    .tubiankuans div p{font-size: 13px;min-height: 40px;}
+    .tubiankuans h3{margin: 0;}
+
+    .pk-icon{background: #6d9a2f;color: #fff;margin: 2rem;border-radius: 50%;padding: 1rem;font-size: 2rem;line-height: 3rem;}
+    .beijinhui{background: #efefef;}
+
+    .picleibai p{line-height: 2rem;height: 4rem;}
+    .icon{width: 1.3rem;height: 1.3rem;}
+  </style>
+</head>
+<body>
+  {include file="common/header" /}
+  <!-- 主体内容 -->
+  <div class="am-text-center">
+    <!-- 头图 -->
+    <div class="am-g">
+      <a href="{$result.items.0.link? $result.items.0.link : 'javascript:;'}" >
+        <img src="__UPLOADS__/{$result.items.0.img_url}" width="100%" alt="{$result.items.0.key_word}"/>
+      </a>
+    </div>
+
+    <!-- 面包屑 -->
+    <div class="am-g am-g-fixed am-padding-sm">
+        <ol class="am-breadcrumb am-breadcrumb-slash am-text-left">
+            <li><a href="{:url('index/index')}">首页</a></li>
+            <li class="am-active">产品展馆</li>
+            <!-- <li class="am-active">植物甾醇介绍</li> -->
+        </ol>
+    </div>
+    
+    <!-- 资讯内容 -->
+    <div class="am-g am-g-fixed">
+      <div class="am-tabs" id="someTabs" data-am-tabs="{noSwipe: 1}">
+
+          <ul class="am-tabs-nav am-nav am-nav-tabs am-u-sm-12 am-u-md-3 am-u-lg-3 ">
+            <li class="am-active"><a href="#tab1">健字号<i class="am-icon-caret-right"></i></a></li>
+            <li><a href="#tab2">食字号<i class="am-icon-caret-right"></i></a></li>
+          </ul>
+
+          <div class="am-tabs-bd am-u-sm-12 am-u-md-9 am-u-lg-9 am-text-left">
+            <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+              
+                <div class="am-g doc-am-g">
+                  <div class="am-u-sm-12 am-u-md-4 am-u-lg-4">
+                      <img src="__PUBLIC__/img/product_01.jpg" width="100%" alt="">
+                  </div>
+                  <div class="am-u-sm-12 am-u-md-8 am-u-lg-8">
+                    <h1>健字号：植物甾醇鱼油胶囊</h1>
+                    <pre>[主要原料]  植物甾醇、深海鱼油、磷酸氢钙
+[标志性成分及含量]  每100g含：植物甾醇60g，EPA 6g
+[保健功能]  辅助降血脂
+[适宜人群]  血脂偏高者
+[不适宜人群]  少年儿童、孕妇、乳母
+[食用方法及食用量]  一日三次,早餐前食2粒,午餐、晚餐前食3粒,饭前食用
+[规格]  0.35g/粒
+[净含量]  0.35g/粒×120粒/瓶
+[保质期]  24个月
+[贮藏方法]  密封、置阴凉干燥处详细说明
+[注意事项]  本品不能代替药物
+[生产许可证]  SC12743010500012
+[执行标准]  Q/AFSN 0001S
+[发明专利号]  ZL03118020.5</pre>
+                    <img class="goumai" src="__PUBLIC__/img/product_02.jpg" alt="">
+                  </div>
+                </div>
+                <div class="am-margin-top-xl">
+                  <h2>市面上植物甾醇保健品那么多，为什么选择左之堂植物甾醇鱼油胶囊？</h2>
+
+                  <div class="am-text-center beijinhui am-margin-top-xl am-margin-bottom-xl am-padding-lg">
+                    <h3>左之堂植物甾醇鱼油胶囊<span class="pk-icon">PK</span>市面普通植物甾醇产品</h3>
+                    <p class="am-text-sm">谁的更有料，一比才知道！</p>
+                    <div class="am-g doc-am-g am-margin-top-xl am-margin-bottom-xl picleibai">
+                      <div class="am-u-sm-12 am-u-md-6 am-u-lg-6">
+                        <img src="__PUBLIC__/img/product_03.png" width="80%" alt="">
+                        <p class="am-margin-lg"><strong>左之堂植物甾醇鱼油胶囊</strong></p>
+                        <div class="am-text-xs am-margin-left-xl am-margin-right-xl">
+                            <p>
+                              <svg class="icon" aria-hidden="true"><use xlink:href="#icon-duigou"></use></svg>
+                              左之堂微晶和不结晶状态高于市场普通植物甾醇20倍
+                            </p>
+                            <p>
+                              <svg class="icon" aria-hidden="true"><use xlink:href="#icon-duigou"></use></svg>
+                              左之堂高纯度Omega3，EPA高出市场7倍。
+                            </p>
+                            <p>
+                              <svg class="icon" aria-hidden="true"><use xlink:href="#icon-duigou"></use></svg>
+                              左之堂植物甾醇鱼油胶囊含有医药专用钙磷酸氢钙
+                            </p>
+                        </div>
+                        
+                      </div>
+                      <div class="am-u-sm-12 am-u-md-6 am-u-lg-6">
+                          <img src="__PUBLIC__/img/product_04.png" width="80%" alt="">
+                          <p class="am-margin-lg"><strong>市面普通植物甾醇产品</strong></p>
+                          <div class="am-text-xs am-margin-left-xl am-margin-right-xl picleibai">
+                              <p>
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-cuowu"></use></svg>
+                                普通植物甾醇提取物，结晶状态不能吸收
+                              </p>
+                              <p>
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-cuowu"></use></svg>
+                                市场上没有同类产品
+                              </p>
+                              <p>
+                                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-cuowu"></use></svg>
+                                市场上没有同类产品
+                              </p>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <img src="__PUBLIC__/img/product_06.jpg" width="100%" alt="">
+                </div>
+                <div class="am-margin-top-xl">
+                  <h1 class="green1">降血脂，认准左之堂</h1>
+                  <hr/>
+                  <img src="__PUBLIC__/img/product_07.jpg" width="100%" alt="">
+                  <h2 class="am-text-center am-margin-top-xl">深耕18年，认准“五个一”</h2>
+
+                  <div class="am-g doc-am-g kuan am-text-left">
+                      <div class="tubiankuans am-u-sm-12 am-u-md-6 am-u-lg-6">
+                        <div class="am-u-sm-12">
+                          <h3>一顶“蓝帽子”</h3>
+                          <p>国内唯一获得健字号“蓝帽子”保健食品批文的植物甾醇产品。</p>
+                          <p>国食健字号：G20110766 </p>
+                        </div>
+                      </div>
+                      <div class="tubiankuans am-u-sm-12 am-u-md-6 am-u-lg-6">
+                        <div class="am-u-sm-12">
+                          <h3>一项国际专利</h3>
+                          <p>国际首创复方和微晶植物甾醇发明专利，唯一能解决植物甾醇吸收功效的保健品，有效控制胆固醇，降脂效果显著。专利号：ZL031018020.5</p>
+                        </div>
+                      </div>
+                      <div class="tubiankuans am-u-sm-12 am-u-md-6 am-u-lg-6">
+                        <div class="am-u-sm-12">
+                          <h3>一级鱼油胶囊</h3>
+                          <p>高纯度鱼油中含有7倍EPA，并采用一级食用“明胶胶囊”，符合国家安全标准。</p>
+                        </div>
+                      </div>
+                      <div class="tubiankuans am-u-sm-12 am-u-md-6 am-u-lg-6">
+                        <div class="am-u-sm-12">
+                          <h3>一个无毒副作用的承诺</h3>
+                          <p>从植物中提取植物甾醇，无任何毒、副作用，原料纯天然更健康。</p>
+                        </div>
+                      </div>
+                      <div class="tubiankuans am-u-sm-12 am-u-md-6 am-u-lg-6 am-u-end">
+                        <div class="am-u-sm-12">
+                          <h3>一等降血脂效果</h3>
+                          <p>53例受试者试食45天，国内唯一降低血清总胆固醇和甘油三酯可高达31.7%。</p>
+                        </div>
+                      </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="am-tab-panel am-fade" id="tab2">
+                <h1>食字号</h1>
+                <!-- <hr/> -->
+                <p class="am-text-sm">敬请期待！</p>
+            </div>
+
+          </div>
+
+      </div>
+
+        
+    </div>
+
+
+  </div>
+  {include file="common/footer" /}
+  {include file="common/common" /}
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!-- [if lte IE 8 ]> -->
+<!-- <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__PUBLIC__/js/amazeui.ie8polyfill.min.js"></script> -->
+<!-- <![endif] -->
+<script src="__PUBLIC__/js/amazeui.min.js"></script>
+<script src="__PUBLIC__/js/common.js"></script>
+<script src="{$Think.config.iconUrl}"></script>
+<script>
+  function jiazai(vo) {
+    $(vo).css('display','none');
+    $('.yingchang').css('display','block');
+  }
+
+  {if condition="isset($_GET['id'])"}
+    $('#someTabs').tabs('open', {$_GET['id']});
+  {/if}
+</script>
+</body>
+</html>

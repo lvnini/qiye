@@ -26,16 +26,28 @@ class Content extends BaseController
 
     //网站信息管理 异步
     public function system_list_ajax(){
-        $file = request()->file('2');
+        $file = request()->file('1');
         if ($file) {
             $filee = $this->imgUpload($file,'uploads/banner');
             if ($filee['error'] == 1) {
-                $_POST['2'] = $filee['url'];
+                $_POST['1'] = $filee['url'];
             }else {
                 return show(0,$filee['errorlog']);
             }
         }else {
-            unset($_POST['2']);
+            unset($_POST['1']);
+        }
+
+        $file = request()->file('8');
+        if ($file) {
+            $filee = $this->imgUpload($file,'uploads/banner');
+            if ($filee['error'] == 1) {
+                $_POST['8'] = $filee['url'];
+            }else {
+                return show(0,$filee['errorlog']);
+            }
+        }else {
+            unset($_POST['8']);
         }
 
         $system = new System;
@@ -160,7 +172,7 @@ class Content extends BaseController
             unset($_POST['thumb']);
         }
         $article = new Article();
-        $results = $article->isUpdate(false)->save($_POST);
+        $results = $article->allowField(true)->isUpdate(false)->save($_POST);
         if ($results) {
             return show(1,'添加成功');
         }else {

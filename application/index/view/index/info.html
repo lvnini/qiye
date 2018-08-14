@@ -1,0 +1,132 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="{$system.WZMS.value}">
+  <meta name="keywords" content="{$system.WZGJZ.value}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{$system.WZBT.value}</title>
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="icon" type="image/png" href="__UPLOADS__/{$system.LOGO.value}">
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="__UPLOADS__/{$system.LOGO.value}">
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+  <link rel="apple-touch-icon-precomposed" href="__UPLOADS__/{$system.LOGO.value}">
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="__UPLOADS__/{$system.LOGO.value}">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+
+  <link rel="stylesheet" href="__PUBLIC__/css/amazeui.min.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/app.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/common.css?V=2">
+  <style>
+    lash>li+li:before { content: '|' ;}
+    p{margin:0;}
+    
+    .wangqi ul,.wangqi li{list-style: disc;clear: both;}
+    .wangqi ul a{color: #222;}
+    .wangqi ul a:hover{color: #467334;}
+    .wangqi ul{margin-left: 2rem;}
+
+    small{font-size: 1.1rem;}
+    .zuixing li{margin: 1rem 0 ;}
+    .am-slider-default{margin: 0;}
+  </style>
+</head>
+<body>
+  {include file="common/header" /}
+  <!-- 主体内容 -->
+  <div class="am-text-center">
+    <!-- 轮播 -->
+    <div class="am-g am-g-fixed">
+      <div class="am-slider am-slider-default" id="your-slider" data-am-flexslider id="demo-slider-0">
+        <ul class="am-slides">
+          {volist name="result.items" id="vo"}
+            <li><a href="{$vo.link? $vo.link : 'javascript:;'}" ><img src="__UPLOADS__/{$vo.img_url}" alt="{$vo.key_word}"/></a></li>
+          {/volist}
+        </ul>
+      </div>
+    </div>
+
+    <!-- 面包屑 -->
+    <div class="am-g am-g-fixed am-padding-sm">
+        <ol class="am-breadcrumb am-breadcrumb-slash am-text-left">
+            <li><a href="{:url('index/index')}">首页</a></li>
+            <li>品牌展馆</li>
+            <li class="am-active">最新资讯</li>
+        </ol>
+    </div>
+    
+    <!-- 资讯内容 -->
+    <div class="am-g am-g-fixed">
+      <div class="am-g doc-am-g">
+        <div class="am-u-sm-12 am-u-md-6 am-u-lg-6 zuixing">
+          <h2 class="am-text-left">最新资讯</h2>
+          <hr/>
+          <ul>
+            {volist name="infoNew" id="vo"}
+              <li>
+                <div class="am-g">
+                  <div class="am-u-sm-3">
+                    <img src="__UPLOADS__/{$vo.thumb}" width="100%" alt="">
+                  </div>
+                  <div class="am-u-sm-8 am-text-left am-u-end">
+                    <strong class="am-text-sm">{$vo.title}</strong><br/>
+                    <small >{$vo.create_time|strtotime|date="Y-m-d",###}</small>
+                    <p class="am-text-xs">为了进一步推动安利2025战略实施，透过卓越的数字化和产品整体体验加快企业成长。</p>
+                    <a class="am-align-right am-text-sm" href="{:url('index/info_detail?id='.$vo.article_id)}">了解更多></a>
+                  </div>
+                </div>
+              </li>
+            {/volist}
+          </ul>
+        </div>
+        <div class="am-u-sm-12 am-u-md-6 am-u-lg-6 wangqi">
+          <h2 class="am-text-left">往期咨询</h2>
+          <hr/>
+          <ul>
+            {volist name="list" id="vo"}
+              <li>
+                <a href="{:url('index/info_detail?id='.$vo.article_id)}">
+                  <p class="am-align-left am-text-sm">{$vo.title}</p>
+                  <span class="am-align-right am-text-xs">{$vo.create_time|strtotime|date="Y-m-d",###} ></span>
+                </a>
+              </li>
+            {/volist}
+          </ul>
+          {$page}
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  {include file="common/footer" /}
+  {include file="common/common" /}
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!-- [if lte IE 8 ]> -->
+<!-- <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__PUBLIC__/js/amazeui.ie8polyfill.min.js"></script> -->
+<!-- <![endif] -->
+<script src="__PUBLIC__/js/amazeui.min.js"></script>
+<script src="__PUBLIC__/js/common.js"></script>
+<script src="{$Think.config.iconUrl}"></script>
+<script>
+    $(function() {
+    $('.am-nav-next .am-next').html('<svg class="icon rig" aria-hidden="true"><use xlink:href="#icon-jiantou"></use></svg>');
+    $('.am-nav-prev .am-prev').html('<svg class="icon lef" aria-hidden="true"><use xlink:href="#icon-jiantou2"></use></svg>');
+  });
+</script>
+</body>
+</html>

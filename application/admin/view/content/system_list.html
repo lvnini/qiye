@@ -48,7 +48,7 @@
 
                             <form class="am-form tpl-form-border-form tpl-form-border-br" id="search_form">
                                 {volist name="results" id="vo"}
-                                    {if condition="$vo.id != '2'"}
+                                    {if condition="$vo.id != '1' && $vo.id != '8'"}
                                         <div class="am-form-group">
                                             <label for="user-{$vo.keyword}" class="am-u-sm-3 am-form-label">{$vo.name} </label>
                                             <div class="am-u-sm-9">
@@ -62,11 +62,11 @@
                                             <div class="am-u-sm-9">
                                                 <div class="am-form-group am-form-file">
                                                     <div class="tpl-form-file-img">
-                                                        <img src="__UPLOADS__/{$vo.value}" alt="" id="img1">
+                                                        <img src="__UPLOADS__/{$vo.value}" alt="" width="150px" id="img{$vo.id}">
                                                     </div>
                                                     <button type="button" class="am-btn am-btn-danger am-btn-sm">
                                                         <i class="am-icon-cloud-upload"></i> 添加图片</button>
-                                                    <input id="uploadfile1" type="file" name="{$vo.id}" onchange="preview(1)" multiple>
+                                                    <input id="uploadfile{$vo.id}" type="file" name="{$vo.id}" onchange="preview({$vo.id})" multiple>
                                                 </div>
 
                                             </div>
