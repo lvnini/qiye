@@ -21,5 +21,5 @@ return [
         '__UPLOADS__' => '',
     ],
 
-    'iconUrl' => 'http://at.alicdn.com/t/font_787654_vcl8kh8m94r.js'
+    'iconUrl' => 'http://at.alicdn.com/t/font_787654_yxvohl7omtf.js'
 ];
