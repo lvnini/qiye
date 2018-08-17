@@ -107,7 +107,7 @@
                                                             <a href="{:url('content/banner_item_edit')}?id={$vo.id}">
                                                                 <i class="am-icon-pencil"></i> 编辑
                                                             </a>
-                                                            <a href="javascript:;" onclick="return dialog.confirm('您确定要删除吗？','{:url('content/banner_item_del')}?id={$vo.id}',7);" class="tpl-table-black-operation-del">
+                                                            <a href="javascript:;" onclick="return dialog.confirm('您确定要删除吗？','{:url('content/banner_item_del')}?id={$vo.id}&banner={$result.id}',7);" class="tpl-table-black-operation-del">
                                                                 <i class="am-icon-trash"></i> 删除
                                                             </a>
                                                         </div>

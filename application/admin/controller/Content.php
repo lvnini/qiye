@@ -147,6 +147,17 @@ class Content extends BaseController
 
     }
 
+    public function banner_item_del()
+    {
+        $banneritem = new BannerItem();
+        $date = $banneritem->where('id', $_GET['id'])->delete();
+        if ($date) {
+            $this->success('删除成功', 'content/banner_edit?id='.$_GET['banner']);
+        }else {
+            $this->error('删除失败','content/banner_edit?id='.$_GET['banner']);
+        }
+    }
+
     public function info_list(){
         $article = new Article();
         $results = $article->select();
